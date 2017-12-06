@@ -1,0 +1,22 @@
+; Michael Walker
+; mjwalker3@crimson.ua.edu
+
+function main()
+    local a = 5
+    function foo(x)
+	    if (x > 0)
+		    print(x + "!")
+            print("\n")
+    		return foo(x-1)
+	    else
+            print("Blast off!!")
+            print("\n")
+            return 0
+        end
+    end
+
+    foo(a)
+end
+
+main()
+

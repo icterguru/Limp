@@ -1,0 +1,144 @@
+; Michael Walker
+; mjwalker3@crimson.ua.edu
+; Reverse Polish Calculator
+
+object node(v)
+    local value = v
+	local next = null
+	function none()
+	    pass
+	end
+	this
+end
+
+object stack()
+	local top = null
+	local size = 0
+	
+	function add(item)
+		if (isEmpty())
+			top = node(item)
+		else
+			local tmp = node(item)
+			tmp.next = top
+			top = tmp
+		end
+		size = size + 1
+	end
+	
+	function pop()
+	    if (isEmpty())
+		    print("Stack is already empty")
+			print("\n")
+			return null
+		else
+			local tmp = top
+			top = top.next ; obtain the node under the top
+			size = size - 1
+			return tmp
+		end
+	end
+	
+	function isEmpty()
+		if (size == 0)
+			return 1
+		else
+			return 0
+		end
+	end
+	
+	function traverse()
+	    if (isEmpty())
+		    print("Stack is empty")
+			print("\n")
+		else
+		    local t = top
+		    while (t != null)
+		        print(t.value + " ")
+			    t = t.next
+		    end
+		end
+		return null
+	end
+	this
+end
+
+;
+; Variables to use for the Reverse Polish Notation
+; 
+;
+local intchr = 0
+
+function rpn(input)
+	function helper(expr, s)
+		if (expr == "")
+		    if (s.size == 1)
+			    return s.top.value
+			else
+				return null
+			end
+		else 
+			if (isdigit(getchr(expr,0)))
+				intchr = int(getchr(expr,0))
+				s.add(intchr)
+				return helper(strim(expr), s)
+			else
+				if (getchr(expr,0) == " ")
+				    return helper(strim(expr), s)
+				else
+					if (s.size >= 2)
+						local a = s.top.value
+						s.pop()
+						local b = s.top.value
+						s.pop()
+					    if (getchr(expr,0) == "+")
+						    intchr = b + a
+							s.add(intchr)
+					    else
+							if (getchr(expr,0) == "-")
+								intchr = b - a
+								s.add(intchr)
+							else
+								if (getchr(expr,0) == "*")
+									intchr = b * a
+									s.add(intchr)
+								else
+									if (getchr(expr,0) == "/")
+										intchr = b / a
+										s.add(intchr)
+									else
+										if (getchr(expr,0) == "^")
+											intchr = pow(b,a)
+											s.add(intchr)
+										end
+									end
+								end
+							end
+						end
+						return helper(strim(expr), s)
+					else
+					    print("Error: expression not valid")
+						return -1
+					end
+				end
+			end
+		end
+	end
+	return helper(input, stack())
+end
+
+function main()
+	;print(rpn("5 1 2 + 4 * + 3 -"))
+	print(2+3*5+6)
+        print("\n")
+	;
+	; Note: I have a bug in my program to where the result of the
+	; first call to the function rpn, retains the value and will
+	; cause any other consecutive calls to that same function to return
+    ; the same value as the first call.
+    ;
+    ; I apologize for my programming
+    ;
+end
+
+main()

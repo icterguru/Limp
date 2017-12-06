@@ -1,0 +1,27 @@
+; Michael Walker
+; mjwalker3@crimson.ua.edu
+
+function main()
+    function foo()
+		local a = 2
+        local b = 3
+		return pow(a,b)
+	end
+	
+	function bar(fnc)
+		local c = fnc()
+		return c*2
+	end
+
+    local f = foo
+    print(foo())
+    print("\n")
+
+    print(f())
+    print("\n")
+
+    print(bar(f))
+    print("\n")
+end
+
+main()

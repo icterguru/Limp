@@ -1,0 +1,19 @@
+; Michael Walker
+; mjwalker3@crimson.ua.edu
+
+function main()
+    local a = 0
+    while(a < 10)
+        a = a + 1
+    end
+    print(a)
+    print("\n")
+
+    repeat(5)
+        a = a + 1
+    end
+    print(a)
+    print("\n")
+end
+
+main()

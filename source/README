@@ -1,0 +1,217 @@
+README - LiMp (Last (I don't know what the 'i' stands for) Minute Project)
+
+### Format of a LiMp source file ###
+
+Writing programs in LiMp has the following structure:
+
+A series of GLOBAL VARIABLES and CLASSES are not required, but at least one FUNCTION is required.
+The final statement in the source file is a call to the function of the users choice. For example,
+
+========================================
+
+*** Global variables/Classes defined ***
+
+function main()
+    ; do something here
+end
+main()
+
+========================================
+
+The function here is named main just out of preference. The function called at the end of the
+source file does not have to be called "main".
+
+
+### Newlines in LiMp ###
+
+Newlines in LiMp denote the end of a statement.
+
+========================================
+
+local a = 0 <newline>
+local b = 1 <newline>
+
+function main() <newline>
+    pass
+    ; do something here <newline>
+end <newline>
+
+========================================
+
+Here, you are able to see where newlines are applied, denoted as <newline>. The word, <newline>
+is not typed out as it is seen here. It is done simply by pressing the ENTER/RETURN key on the users keyboard.
+
+
+### Declaring and using variables in LiMp ###
+
+Variables in LiMp are declared as follows:
+
+<local> <identifier> = <expression>
+
+local : "local"
+identifier : The name of the variable. Must begin with a letter then can contain a series of letters and numbers
+expression : The result of an expression should be a literal(Integer, String), variable, function call, etc.
+
+
+Variables can be applied as statements, for example,
+
+========================================
+
+local a = 0
+a = 1 + 2
+a = pow(2,2)
+
+========================================
+
+
+### Declaring and using functions in LiMp ###
+
+Functions in LiMp are declared as follows:
+
+<function> <identifier> (<identifier> ... <identifier>)
+    ; statement(s)
+<end>
+
+========================================
+
+function food()
+    print("Watermelon")
+    return 0
+end
+
+========================================
+
+Return statements are optional. If a return statement is not placed within the function and evaluated,
+the last statement with the body is returned.
+
+
+### Declaring and using objects in LiMp ###
+
+Objects in LiMp are declared as follows:
+
+<object> <identifier> (<identifier> ... <identifier>)
+    ;functions / variables
+    <this>
+<end>
+
+An object must have at least one function declared within its body.
+The keyword this is used at the end of an object's body to return the object's environment.
+
+=======================================
+
+### Conditionals and Loops in LiMp ###
+
+Operators in LiMp:
+
+    . (dot ? used for accessing member fields/functions)
+    + (plus)
+    - (minus)
+    * (times)
+    \ (divides)
+    % (modulus)
+    - (unary)
+    = (assign)
+    and (logical and [short-circuit])
+    or (logical or [short-circuit])
+    == (equals)
+    != (not equal)
+
+=======================================
+
+if statements:
+
+=======================================
+
+
+if (<expression>)
+    ;statements
+end
+
+
+
+=======================================
+
+if else if statements:
+
+=======================================
+
+if (<expression>)
+    ;statements
+else if (<expression>)
+    ;statements
+else
+    ;statements
+    end
+end
+
+
+
+=======================================
+
+if else statements
+
+=======================================
+
+if (<expression>)
+    ;statements
+else
+    ;statements
+end
+
+
+
+=======================================
+
+while statement:
+
+=======================================
+while(<expression>)
+    ;statements
+end
+
+The while statement will repeat while the condition inside
+the parenthesis is equals to 1
+
+
+
+
+=======================================
+
+repeat statement:
+
+=======================================
+repeat(<expression>)
+
+end
+
+The repeat function repeats the body of the expression
+until the value within the parenthesis equals zero.
+
+
+
+=======================================
+
+### Built-in functions ###
+
+=======================================
+
+print: print(<integer, string>) 
+	- Print can print integers or strings to the terminal
+
+getchr: getchr(<string>, <index>) 
+	- Gets the character at the selected index (must be an integer).
+
+int: int(<string>)
+	- Returns an integer representation of a string.
+
+str: str(<int>)
+	- Returns a string representation of an integer.
+
+strim: strim(<string>) 
+	- Trims the first character and returns the remaining string.
+
+pow: pow(<integer>, <integer>)
+	- Returns the power of the first argument by the second argument
+
+
+

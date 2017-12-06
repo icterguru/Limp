@@ -1,0 +1,3 @@
+#Author: Michael Walker 11/27/2014
+#!/bin/bash
+java Scanner  $*

@@ -1,0 +1,28 @@
+; Michael Walker
+; mjwalker3@crimson.ua.edu
+
+function main()
+    local a = 11
+    local b = 2
+    local c = 2
+    local d = 3
+
+    print("Conditionals")
+    print("\n")
+    if (a == 0)
+        a = a + d
+        print(a)
+        print("\n")
+    else
+        if (a + b == d)
+            print(a + b)
+	    print("\n")
+        else
+    	    d = d + b
+	    print(d)
+            print("\n")
+        end
+    end 
+end
+
+main()

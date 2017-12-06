@@ -1,0 +1,8 @@
+scanner.class : scanner.java ----> these will probably not be needed ... lexeme.class lexer.class
+<tab>	javac scanner.java
+
+iteration-source:
+<tab>	cat iter.mylang		// simply displays the source code
+
+iteration : scanner.class
+<tab>	java scanner iter.mylang

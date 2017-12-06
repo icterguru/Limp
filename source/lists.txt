@@ -1,0 +1,72 @@
+; Michael Walker
+; mjwalker3@crimson.ua.edu
+
+object node(v)
+    local value = v
+    local next = null
+    function hasnext()
+        if (next == null)
+            return 1
+        else
+	    return 0
+	end
+    end
+    this
+end
+
+
+object list()
+	local front = null
+    local back = null
+	local top = null
+	local size = 0
+	
+	function insert(item)
+		if (isEmpty())
+			front = node(item)
+            back = front
+		else
+			local tmp = node(item)
+			back.next = tmp
+			back = tmp
+		end
+		size = size + 1
+	end
+	
+	function isEmpty()
+		if (size == 0)
+			return 1
+		else
+			return 0
+		end
+	end
+	
+	function traverse()
+	    if (isEmpty())
+		    print("List is empty")
+			print("\n")
+		else
+		    local t = front
+		    while (t != null)
+		        print(t.value + " ")
+			    t = t.next
+		    end
+		end
+		return null
+	end
+	this
+end
+
+function main()
+    local mylist = list()
+    mylist.insert(0)
+    mylist.insert(34)
+    mylist.insert(29)
+    mylist.insert(17)
+    mylist.insert(88)
+    mylist.traverse()
+    print("\n")    
+end
+
+main()
+
